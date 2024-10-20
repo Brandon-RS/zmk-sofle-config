@@ -33,16 +33,16 @@
             display-name = "Dvorak";
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   | BKSPC |
-// |   `   |  '  |  ,  |  .   |  P   |  Y   |                   |  F   |  G    |  C    |  R   |   L   | BKSPC |
-// |  TAB  |  A  |  O  |  E   |  U   |  I   |                   |  D   |  H    |  T    |  N   |   S   |   -   |
+// |  TAB  |  '  |  ,  |  .   |  P   |  Y   |                   |  F   |  G    |  C    |  R   |   L   | BKSPC |
+// |  CTRL |  A  |  O  |  E   |  U   |  I   |                   |  D   |  H    |  T    |  N   |   S   |   -   |
 // | SHIFT |  ;  |  Q  |  J   |  K   |  X   |  MUTE  |  |       |  B   |  M    |  W    |  V   |   Z   | SHIFT |
-//               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
+//               |     |      | GUI  | LOWER|  SPACE |  | ENTER | RAISE| ALT   |       |      |
             bindings = <
 &kp ESC     &kp N1    &kp N2     &kp N3    &kp N4     &kp N5                            &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp BSPC
-&kp GRAVE   &kp SQT   &kp COMMA  &kp DOT   &kp P      &kp Y                             &kp F      &kp G      &kp C      &kp R     &kp L     &kp BSPC
-&kp TAB     &kp A     &kp O      &kp E     &kp U      &kp I                             &kp D      &kp H      &kp T      &kp N     &kp S     &kp MINUS
+&kp TAB     &kp SQT   &kp COMMA  &kp DOT   &kp P      &kp Y                             &kp F      &kp G      &kp C      &kp R     &kp L     &kp BSPC
+&kp LCTRL   &kp A     &kp O      &kp E     &kp U      &kp I                             &kp D      &kp H      &kp T      &kp N     &kp S     &kp MINUS
 &kp LSHFT   &kp SEMI  &kp Q      &kp J     &kp K      &kp X      &kp C_MUTE  &none      &kp B      &kp M      &kp W      &kp V     &kp Z     &kp RSHFT
-                      &kp LGUI   &kp LALT  &kp LCTRL  &mo LOWER  &kp RET     &kp SPACE  &mo RAISE  &kp RCTRL  &kp RALT   &kp RGUI
+                      &none      &none     &kp LGUI  &mo LOWER   &kp SPACE   &kp RET    &mo RAISE  &kp RALT   &none      &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -71,16 +71,16 @@
         raise_layer {
             display-name = "Raise";
 // ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
-// |       | INS  | PSCR | GUI   |       |      |                | PGUP |      |       |      |       |       |
-// |       | ALT  | CTRL | SHIFT |       | CAPS |                | PGDN |   <- |   ^   |  ->  |  DEL  | BKSPC |
-// |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |   v   |      |       |       |
+// |       | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
+// |  ESC  | F1   | F2   |  F3   |  F4   |  F5  |                |  F6  |  F7  |  F8   |  F9  |  F10  |  F12  |
+// |       | ALT  | CTRL | SHIFT |       | CAPS |                |      |   <- |   ^   |  ->  |       |  DEL  |
+// |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      | PGUP | PGDN |   v   |      |       |       |
 //                |      |       |       |      |      |  |      |      |      |       |      |
             bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &trans    &trans    &trans   &trans    &trans  &trans
-&trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                        &kp PG_UP &none     &none    &none     &kp N0  &trans
-&trans     &kp LALT     &kp LCTRL    &kp LSHFT    &trans       &kp CLCK                      &kp PG_DN &kp LEFT  &kp UP   &kp RIGHT &kp DEL &kp BSPC
-&trans     &kp LG(Z)   &kp LG(X)     &kp LG(C)    &kp LG(V)    &trans        &trans  &trans  &trans    &none     &kp DOWN &none     &trans  &trans
+&none      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &trans    &trans    &trans   &trans    &trans  &trans
+&kp ESC    &kp F1       &kp F2       &kp F3       &kp F4     &kp F5                          &kp F6    &kp F7    &kp F8   &kp F9    &kp F10 &kp F12
+&trans     &kp LALT     &kp LCTRL    &kp LSHFT    &trans       &kp CLCK                      &none     &kp LEFT  &kp UP   &kp RIGHT &none   &kp DEL
+&trans     &kp LG(Z)   &kp LG(X)     &kp LG(C)    &kp LG(V)    &trans        &trans  &trans  &kp PG_UP &kp PG_DN &kp DOWN &none     &trans  &trans
                         &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans
             >;
 
